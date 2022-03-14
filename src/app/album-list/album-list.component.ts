@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -11,8 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class AlbumListComponent implements OnInit {
   albumList: Array<any> = [];
-  
-  
+    
 
   constructor( private http: HttpClient) { }
 
@@ -29,9 +28,13 @@ export class AlbumListComponent implements OnInit {
     this.albumList.splice(i, 1);
   }
 
-  updateAlbum() {
-      
-    }
+  updateAlbum (album: any) {
+    this.http.put<any>(`http://localhost:3000/album/${album._id}`, JSON.stringify(album)).subscribe();
+    console.log(album);
+  }
 }
+  
+      
+
     
   
