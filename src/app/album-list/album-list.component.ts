@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
-import { UpdateAlbumDialogComponent } from '../update-album-dialog/update-album-dialog.component';
+import { UpdateAlbumDialog } from '../update-album-dialog/update-album.dialog';
 @Component({
   selector: 'album-list',
   templateUrl: './album-list.component.html',
@@ -21,7 +21,7 @@ export class AlbumListComponent implements OnInit {
     );
   }
   openDialogUpdateAlbum(album:any, i:any) { //copio la funcion openDialog para que funione el boton edit igual que con el cancel. Importo MatDialog para que funcione igual que newalbum
-    this.dialog.open(UpdateAlbumDialogComponent, {data: this.albumList[i]});//llamo al componente UpdateAlbumDialogComponent cogiendo a data del album con el indice
+    this.dialog.open(UpdateAlbumDialog, {data: this.albumList[i]});//llamo al componente UpdateAlbumDialogComponent cogiendo a data del album con el indice
   }
   deleteAlbum(album: any, i: number) {
     this.http.delete(`http://localhost:3000/album/${album._id}`).subscribe();

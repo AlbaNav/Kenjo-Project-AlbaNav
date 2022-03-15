@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'update-album-dialog',
-  templateUrl: 'update-album.dialog.html',
+  templateUrl: './update-album.dialog.html',
   styleUrls: ['./update-album.dialog.scss']
 })
 
