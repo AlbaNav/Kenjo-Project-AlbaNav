@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'update-album-dialog',
   templateUrl: 'update-album.dialog.html',
@@ -8,23 +9,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class UpdateAlbumDialog implements OnInit {
   album = {
-    title: '',
-    year: 1900,
-    artist: '',
-    photoUrl: ''
+    title:this.data.title,
+    year: this.data.year,
+    artist: this.data.artist,
+    photoUrl: this.data.photoUrl
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private http: HttpClient, ) { }
 
   ngOnInit(): void { }
 
-   updateAlbum(album: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    this.http.put<any>('http://localhost:3000/album/create', JSON.stringify(album), httpOptions).subscribe();
+   updateAlbum(album: any) {    
+    this.http.put<any>(`http://localhost:3000/album/${album._id}`, JSON.stringify(album), ).subscribe();
   }
 
 }

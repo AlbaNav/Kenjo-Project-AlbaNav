@@ -1,5 +1,8 @@
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { UpdateAlbumDialog } from '../update-album-dialog/update-album.dialog';
+
 
 
 @Component({
@@ -11,9 +14,9 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 export class AlbumListComponent implements OnInit {
   albumList: Array<any> = [];
-    
+      
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.http.get<any[]>('http://localhost:3000/album').subscribe((data: Array<any>) =>{
@@ -23,18 +26,25 @@ export class AlbumListComponent implements OnInit {
     );
   }
 
+  openUpdateAlbumDialog (album: any, i:number) {
+    this.dialog.open(UpdateAlbumDialog,{data:this.albumList[i]});
+    }
+
+
+
   deleteAlbum(album: any, i: number) {
     this.http.delete(`http://localhost:3000/album/${album._id}`).subscribe();
     this.albumList.splice(i, 1);
   }
 
-  updateAlbum (album: any) {
-    this.http.put<any>(`http://localhost:3000/album/${album._id}`, JSON.stringify(album)).subscribe();
-    console.log(album);
-  }
+  
 }
   
       
 
     
   
+function NewAlbumDialo(NewAlbumDialo: any, arg1: { data: any; }) {
+  throw new Error('Function not implemented.');
+}
+
