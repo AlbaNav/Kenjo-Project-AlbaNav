@@ -27,6 +27,4 @@ export class NewAlbumDialog implements OnInit {
     this.http.post<any>('http://localhost:3000/album/create', JSON.stringify(album), httpOptions).subscribe();
   }
 
-  
-
 }
