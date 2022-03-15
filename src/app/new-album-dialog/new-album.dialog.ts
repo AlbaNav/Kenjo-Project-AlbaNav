@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Component({
   selector: 'new-album-dialog',
   templateUrl: 'new-album.dialog.html',
   styleUrls: ['./new-album.dialog.scss']
 })
 
+
 export class NewAlbumDialog implements OnInit {
   album = {
     title: '',
     year: 1900,
     artist: '',
-    photoUrl: ''
-  };
+    photoUrl: '',
+    };
+
+     
 
   constructor(private http: HttpClient) { }
 
