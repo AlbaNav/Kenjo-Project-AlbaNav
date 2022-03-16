@@ -22,11 +22,24 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Year</mat-label>
-    <input matInput name="artist" [(ngModel)]="album.year" type="text" />
+    <input 
+    matInput name="artist" 
+    [(ngModel)]="album.year" 
+    type="text" />
   </mat-form-field>
   <mat-form-field>
     <mat-label>Artist</mat-label>
-    <input matInput name="artist" [(ngModel)]="album.artist" type="text" />
+    <input 
+    matInput name="artist" 
+    [(ngModel)]="album.artist" 
+    type="text" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label class="score">score</mat-label>
+    <input 
+    matInput name="1 to 5" 
+    [(ngModel)]="album.score" 
+    type="text" />
   </mat-form-field>
   <div class="album-actions">
     <button

@@ -14,7 +14,8 @@ export class UpdateAlbumDialog implements OnInit {
     title:this.data.title,
     year: this.data.year,
     artist: this.data.artist,
-    photoUrl: this.data.photoUrl
+    photoUrl: this.data.photoUrl,
+    score: this.data.score
   };
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,private http: HttpClient, private router: Router) { }

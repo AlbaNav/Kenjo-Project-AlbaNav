@@ -15,6 +15,7 @@ import { AlbumListComponent } from "./album-list/album-list.component";
 import { HttpClientModule } from "@angular/common/http";
 import { NewAlbumDialog } from "src/app/new-album-dialog/new-album.dialog";
 import { UpdateAlbumDialog } from "./update-album-dialog/update-album.dialog";
+import {BarRatingModule} from "ngx-bar-rating";
 
 
 
@@ -36,6 +37,7 @@ import { UpdateAlbumDialog } from "./update-album-dialog/update-album.dialog";
     FormsModule,
     HttpClientModule,
     MatDialogModule,
+    BarRatingModule,
     RouterModule.forRoot([
       {
         path: "",
