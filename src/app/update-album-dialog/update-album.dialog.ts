@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router} from '@angular/router';
+
 @Component({
   selector: 'update-album-dialog',
   templateUrl: './update-album.dialog.html',
@@ -15,17 +17,17 @@ export class UpdateAlbumDialog implements OnInit {
     photoUrl: this.data.photoUrl
   };
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private http: HttpClient, ) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private http: HttpClient, private router: Router) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
    updateAlbum(album: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
+    
     };
-    this.http.put<any>(`http://localhost:3000/album/${this.data._id}`, JSON.stringify(album), httpOptions).subscribe();
+    this.http.put<any>(`http://localhost:3000/album/${this.data._id}`, JSON.stringify(album), httpOptions).subscribe(() => {window.location.reload();});
   }
-
 }

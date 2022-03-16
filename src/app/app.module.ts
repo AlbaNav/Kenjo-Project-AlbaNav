@@ -15,8 +15,8 @@ import { AlbumListComponent } from "./album-list/album-list.component";
 import { HttpClientModule } from "@angular/common/http";
 import { NewAlbumDialog } from "src/app/new-album-dialog/new-album.dialog";
 import { UpdateAlbumDialog } from "./update-album-dialog/update-album.dialog";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { RatingComponent } from "./rating/rating.component";
+
+
 
 @NgModule({
   declarations: [
@@ -24,10 +24,9 @@ import { RatingComponent } from "./rating/rating.component";
     AlbumListComponent,
     NewAlbumDialog,
     UpdateAlbumDialog,
-    RatingComponent,
+  
   ],
   imports: [
-    NgbModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -45,5 +44,6 @@ import { RatingComponent } from "./rating/rating.component";
     ]),
   ],
   providers: [],
+  bootstrap:[AppComponent]
 })
 export class AppModule {}

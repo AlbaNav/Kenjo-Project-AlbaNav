@@ -11,7 +11,7 @@ export class AlbumListComponent implements OnInit {
   albumList: Array<any> = [];
 
   constructor( private http: HttpClient, public dialog: MatDialog) { }
-  data: any; //Creo variable data para que el newalbumdialog me devuelva los datos que coge en el get
+  data: any; 
   ngOnInit(): void {
     this.http.get<any[]>('http://localhost:3000/album').subscribe((data: Array<any>) =>{
       this.albumList = data;
@@ -20,8 +20,9 @@ export class AlbumListComponent implements OnInit {
     
     );
   }
-  openDialogUpdateAlbum(album:any, i:any) { //copio la funcion openDialog para que funione el boton edit igual que con el cancel. Importo MatDialog para que funcione igual que newalbum
-    this.dialog.open(UpdateAlbumDialog, {data: this.albumList[i]});//llamo al componente UpdateAlbumDialogComponent cogiendo a data del album con el indice
+  openDialogUpdateAlbum(album:any, i:any) { 
+    this.dialog.open(UpdateAlbumDialog, {data: this.albumList[i]});
+   
   }
   deleteAlbum(album: any, i: number) {
     this.http.delete(`http://localhost:3000/album/${album._id}`).subscribe();
