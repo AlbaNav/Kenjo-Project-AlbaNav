@@ -1,6 +1,8 @@
+/* this component was fully created to be able to modify album information  */
+
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router} from '@angular/router';
 
 @Component({
@@ -11,7 +13,7 @@ import { Router} from '@angular/router';
 
 export class UpdateAlbumDialog implements OnInit {
   album = {
-    title:this.data.title,
+    title:this.data.title, /* recovering information from "data"  */
     year: this.data.year,
     artist: this.data.artist,
     photoUrl: this.data.photoUrl,
@@ -29,6 +31,6 @@ export class UpdateAlbumDialog implements OnInit {
       })
     
     };
-    this.http.put<any>(`http://localhost:3000/album/${this.data._id}`, JSON.stringify(album), httpOptions).subscribe(() => {window.location.reload();});
+    this.http.put<any>(`http://localhost:3000/album/${this.data._id}`, JSON.stringify(album), httpOptions).subscribe(() => {window.location.reload();}); /* with this final action the windows is reloaded to show changes */
   }
 }

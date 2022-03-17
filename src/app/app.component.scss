@@ -9,3 +9,10 @@
   padding: 5px;
   height: 50px;
 }
+
+/* hover modified in the new album button */
+button{
+  &:hover {
+    box-shadow: 0 0 10px #383737;
+  }
+}

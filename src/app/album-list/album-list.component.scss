@@ -1,33 +1,39 @@
 .main-body {
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-self: center;
-    justify-content: center;
-    align-items: center;
-    max-width: 90%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 3%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  flex-direction: row;
+  margin-top: 3%;
 }
-
+// card style modified to be more stylish
 .album-container {
   padding: 2%;
   margin: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  height: 400px;
-  border: 1px solid grey;
- }
+  background: rgba(255, 255, 255, 0.562);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid #c9c8c8;
+  &:hover {
+    box-shadow: 0 0 10px #383737;
+  }
+}
 
- .album-container img { 
-   height:100px;
-   width: 100px;
-
- }
+.album-container img {
+  height: 150px;
+  width: 150px;
+  padding: 1.5%;
+  margin: 1.5%;
+}
 
 .album-actions {
   align-self: end;
@@ -38,18 +44,23 @@
   margin-right: 5px;
   border-radius: 20px;
   padding: 2px;
-  border: 1px solid #c9c8c8
+  border: 1px solid #c9c8c8;
+  &:hover {
+    transform: scale(1, 1.1);
+  }
 }
 
 .edit-icon {
   position: relative;
   top: -4px;
 }
-.score{
+
+/* adding score style as I tryed to use bootstrap but it was not able to compile */
+.score {
   text-align: center;
   align-items: center;
   font-weight: bold;
   font-size: 22px;
-
-
+  color: #58c294;
+ 
 }

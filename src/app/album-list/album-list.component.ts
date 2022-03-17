@@ -14,13 +14,13 @@ export class AlbumListComponent implements OnInit {
   data: any; 
   ngOnInit(): void {
     this.http.get<any[]>('http://localhost:3000/album').subscribe((data: Array<any>) =>{
-      this.albumList = data;
+      this.albumList = data;  /* this function was modified to get information from the back */
       console.log(data)
     }
     
     );
   }
-  openDialogUpdateAlbum(album:any, i:any) { 
+  openDialogUpdateAlbum(album:any, i:any) {  /* will alow us to call update dialog function from its component */
     this.dialog.open(UpdateAlbumDialog, {data: this.albumList[i]});
    
   }

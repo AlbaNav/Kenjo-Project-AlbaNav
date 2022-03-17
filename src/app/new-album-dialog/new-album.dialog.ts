@@ -14,7 +14,7 @@ export class NewAlbumDialog implements OnInit {
     year: 1900,
     artist: '',
     photoUrl: '',
-    score:'',
+    score:'', /* adding score information  */
     };
 
      
@@ -29,7 +29,7 @@ export class NewAlbumDialog implements OnInit {
         'Content-Type': 'application/json'
       })
     };
-    this.http.post<any>('http://localhost:3000/album/create', JSON.stringify(album), httpOptions).subscribe(() => {window.location.reload();});
+    this.http.post<any>('http://localhost:3000/album/create', JSON.stringify(album), httpOptions).subscribe(() => {window.location.reload();}); /* with this final action the windows is reloaded to show changes */
   }
 
 }

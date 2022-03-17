@@ -2,7 +2,7 @@
   <!-- Album component -->
     <mat-card class="album-container" *ngFor="let album of albumList; let i = index">
       <div class="album-actions">
-        <button class="edition-button" mat-mini-fab (click)="openDialogUpdateAlbum(album, i)">
+        <button class="edition-button" mat-mini-fab (click)="openDialogUpdateAlbum(album, i)"> <!-- adding dialog component to make the button works -->
           <mat-icon class="edit-icon">edit</mat-icon>
         </button>
         <button class="edition-button" mat-mini-fab (click)="deleteAlbum(album, i)">
@@ -24,7 +24,7 @@
         <mat-label>Artist</mat-label>
         <input matInput name="artist" [ngModel]="album.artist" type="text">
       </mat-form-field>
-      <div class="score">
+      <div class="score">  <!-- adding score div --> 
         <mat-label>Score</mat-label>
         <input matInput name="1 to 5" [ngModel]="album.score" type="text">
       </div>
